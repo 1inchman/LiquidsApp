@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#008699"
+    tools:context="com.example.oneinchman.liquids.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/componentsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/percentagesText"
+            android:layout_marginTop="22dp"
+            android:ems="10"
+            android:hint="Components here"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/percentagesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/componentsText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"
+            android:ems="10"
+            android:hint="Percentages here"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/percentagesText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:onClick="addButtonClicked"
+            android:text="Add" />
+
+        <TextView
+            android:id="@+id/componentsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/submitButton"
+            android:layout_marginTop="28dp"
+            android:layout_toStartOf="@+id/percentagesText" />
+
+        <TextView
+            android:id="@+id/percentagesView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/componentsView"
+            android:layout_toEndOf="@+id/percentagesText" />
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
+
