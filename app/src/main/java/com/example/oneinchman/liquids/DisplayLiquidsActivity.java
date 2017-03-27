@@ -1,7 +1,11 @@
 package com.example.oneinchman.liquids;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,22 +16,23 @@ import java.util.ArrayList;
 
 public class DisplayLiquidsActivity extends AppCompatActivity {
 
-    TextView componentsView;
-    TextView percentagesView;
-    TextView nameView;
-    Spinner dropdownList;
-    LiquidsDBHandler db;
+    private TextView componentsView;
+    private TextView percentagesView;
+    private TextView nameView;
+    private Spinner dropdownList;
+    private LiquidsDBHandler db;
+    private BottomNavigationView bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.activity_display_liquids);
-        setContentView(android.R.layout.);
+        setContentView(R.layout.activity_display_liquids);
 
         componentsView = (TextView) findViewById(R.id.liquidComponentsView);
         percentagesView = (TextView) findViewById(R.id.liquidProportionsView);
         nameView = (TextView) findViewById(R.id.liquidNameView);
         dropdownList = (Spinner) findViewById(R.id.dropdownList);
+        bottomNavigation = (BottomNavigationView)findViewById(R.id.bottom_navigation);
         db = new LiquidsDBHandler(this, null, null, 1);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -45,6 +50,20 @@ public class DisplayLiquidsActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        bottomNavigation.inflateMenu(R.menu.bottom_menu);
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch(id) {
+                    case R.id.add_delete:
+                        Intent viewIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(viewIntent);
+                }
+                return true;
             }
         });
     }
