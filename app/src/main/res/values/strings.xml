@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Liquids</string>
+    <string name="action_settings">Settings</string>
+    <string name="componentsHint">Components here</string>
+    <string name="percentageHint">Percentages here</string>
+    <string name="addButtonText">Add</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="add_delete">Manage</string>
+    <string name="view">View</string>
+    <string name="calc">Calculate</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
