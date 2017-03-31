@@ -41,7 +41,8 @@ public class DisplayLiquidsActivity extends AppCompatActivity {
         dropdownList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               ArrayList<String> liquid =  db.getLiquidByName(dropdownList.getSelectedItem().toString());
+               ArrayList<String> liquid = null;
+               liquid = db.getLiquidByName(dropdownList.getSelectedItem().toString());
                nameView.setText(liquid.get(0));
                componentsView.setText(liquid.get(1));
                percentagesView.setText(liquid.get(2));
@@ -54,14 +55,20 @@ public class DisplayLiquidsActivity extends AppCompatActivity {
         });
 
         bottomNavigation.inflateMenu(R.menu.bottom_menu);
+        bottomNavigation.setSelectedItemId(bottomNavigation.getMenu().getItem(1).getItemId());
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 switch(id) {
                     case R.id.add_delete:
-                        Intent viewIntent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(viewIntent);
+                        Intent app_deleteIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(app_deleteIntent);
+                        break;
+                    case R.id.calculate:
+                        Intent calculateIntent = new Intent(getApplicationContext(), CalculatorActivity.class);
+                        startActivity(calculateIntent);
+                        break;
                 }
                 return true;
             }

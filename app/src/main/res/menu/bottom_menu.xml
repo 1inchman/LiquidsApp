@@ -19,6 +19,7 @@
         android:id="@+id/calculate"
         android:title="@string/calc"
         app:showAsAction="ifRoom"
-        android:enabled="true">
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_slideshow">
     </item>
 </menu>
